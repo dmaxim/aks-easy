@@ -8,6 +8,19 @@ export SP_NAME="http://<Service Principal Name>"
 ````
 az ad sp create-for-rbac -n ${SP_NAME} --role Contributor --scopes ${SUBSCRIPTION_ID}
 ````
+
+NOTE:  If the service principal needs to create role assignments (which is required for AKS), the principal must have the Owner role
+
+````
+az ad sp create-for-rbac -n ${SP_NAME} --role Owner --scopes ${SUBSCRIPTION_ID}
+````
+
+Or Add
+
+````
+az role assignment create --assignee <Service Principal Id> --scope /subscriptions/<subscriptionid> --role Owner
+````
+
 # Store the Client Id and Secret from the output in an encrypted secret store
 
 # Grant the Required permissions to Azure AD Resources This is easier to do via the portal
