@@ -61,3 +61,4 @@ resource "azurerm_role_assignment" "vnet_contributor" {
   role_definition_name = "Contributor"
   principal_id         = azurerm_kubernetes_cluster.aks-cluster.identity[0].principal_id
 }
+

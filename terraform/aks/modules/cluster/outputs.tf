@@ -5,3 +5,4 @@ output "cluster_managed_identity" {
 output "cluster_id" {
   value = azurerm_kubernetes_cluster.aks-cluster.id
 }
+
